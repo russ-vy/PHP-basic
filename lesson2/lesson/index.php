@@ -115,3 +115,53 @@ echo "\n";
 // 7. *Написать функцию, которая вычисляет текущее время и возвращает его в формате с правильными склонениями, например:
 // 22 часа 15 минут
 // 21 час 43 минуты
+
+function getCurTime(){
+	$hours = ['час', 'часа', 'часов'];
+	$minutes = ['минута', 'минуты', 'минут'];
+
+	function getEnding($num, $ending){
+		if ($num >= 11 && $num <= 19) return $ending[2];
+		else {
+			$num %= 10;
+
+			if ($num == 1) return $ending[0];
+			elseif ($num >= 2 && $num <= 4) return $ending[1];
+			else return $ending[2];
+		}
+	}
+
+	$h = date('H');
+	$m = date('i');
+	return "$h " . getEnding($h, $hours) . " $m " . getEnding($m, $minutes);
+}
+
+echo getCurTime();
+/*
+0 часов минут
+1 час   минута
+2 часа  минуты
+3
+4
+5 часов минут
+6
+7
+8
+9
+10
+	11
+	12
+	13
+	14
+	15
+	16
+	17
+	18
+	19
+20
+21 час    минута
+22 часа   минуты
+23
+24
+25 часов  минут
+*/
