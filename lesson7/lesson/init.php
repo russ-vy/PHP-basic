@@ -54,3 +54,31 @@ function getProduct($id){
 ";
     return dbquery($q)[0];
 }
+
+function getCart(){
+    $IDuser = getUserID();
+
+    $q = "
+    select
+        p.id
+        ,p.product_name
+        ,p.price
+        ,c.quantity
+        ,im.full_name
+    from
+        cart                c
+        join products       p   on  p.id = c.id_product
+        left join images    im  on  im.id_product = p.id
+    where c.id_user = '$IDuser'
+    order by
+        product_name
+";
+    return dbquery($q);
+}
+
+function getUserID(){
+    if (empty($_SESSION['userID']))
+        return session_id();
+    else
+        return $_SESSION['userID'];
+}

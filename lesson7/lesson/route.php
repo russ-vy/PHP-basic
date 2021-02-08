@@ -31,6 +31,15 @@ elseif (is_route('/edit')) {
 elseif (is_route('/delete')) {
     $fileName = './admin/action/delete.php';
 }
+elseif (is_route('/cart')) {
+    $fileName = './view/cart.php';
+}
+elseif (is_route('/del-with-cart')) {
+    $fileName = './view/action/del-with-cart.php';
+}
+elseif (is_route('/add-to-cart')) {
+    $fileName = './view/action/add-to-cart.php';
+}
 else {
     $fileName = "./view/404.php";
 }

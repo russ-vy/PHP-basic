@@ -1,5 +1,9 @@
 <?php
 
+$host = $_SERVER['HTTP_HOST'];
+$uri = $_SERVER["REQUEST_URI"];
+
+
 const IMAGES_DIR = "./img/";
 const ROOT = __DIR__;
 
@@ -18,5 +22,9 @@ const MENU = [
     ,[
         "title" => "Администратор"
         ,"link" => "/admin"
+    ]
+    ,[
+        "title" => "Корзина"
+        ,"link" => "/cart"
     ]
 ];
