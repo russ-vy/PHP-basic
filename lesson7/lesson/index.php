@@ -1,24 +1,23 @@
 <?php
 
-//создать cookie
-setcookie("username", "Kostya", time() + 3600*24*7);
+require_once "./config.php";
+require_once "./mysql.php";
+require_once "./init.php";
 
-//массив содержит cookie на момент загрузки страницы
-echo $_COOKIE["username"];
+$host = $_SERVER['HTTP_HOST'];
+$uri = $_SERVER["REQUEST_URI"];
 
-//удалить cookie - указать любое отрицательное время
-//setcookie("username", "Kostya", time() - 3600);
+require_once "./route.php";
 
 
-session_start();
-echo session_id();
-$_SESSION['login'] = "login";
-
-echo md5("password");
-
-$hash = password_hash($password, PASSWORD_BCRYPT);
-echo $hash;
-
-if(password_verify($password, $hash)){
-    echo "пароль правильный";
-}
+/*
+echo "<pre>";
+var_dump([
+    $host
+    ,$_SERVER["REQUEST_URI"]
+    ,$uri
+    ,$fileName
+    ,stripos($uri, '/delete')
+]);
+echo "</pre>";
+*/
