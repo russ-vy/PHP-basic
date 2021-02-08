@@ -65,13 +65,14 @@ function getCart(){
         ,p.price
         ,c.quantity
         ,im.full_name
+        ,(p.price * c.quantity)     'sum'
+        ,c.add_time
     from
         cart                c
         join products       p   on  p.id = c.id_product
         left join images    im  on  im.id_product = p.id
     where c.id_user = '$IDuser'
-    order by
-        product_name
+    order by add_time
 ";
     return dbquery($q);
 }
