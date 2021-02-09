@@ -83,3 +83,37 @@ function getUserID(){
     else
         return $_SESSION['userID'];
 }
+
+function auth(){
+    if (!isset($_SESSION['userID']) && isset($_POST['login']) && isset($_POST['passwd'])){
+        extract( checkform($_POST) );
+
+        $user = dbquery("select id, passwd, id_role from user where login = '$login'");
+
+        // если найдена запись в базе
+        if (count($user)){
+            $hash = $user[0]['passwd'];
+
+            if(password_verify($passwd, $hash)){
+                $_SESSION['userID'] = $user[0]['id'];
+                $_SESSION['isAdmin'] = ($user[0]['id_role'] == 1);
+                return true;
+            }
+        }
+        // если новый пользователь решил зарегистрироваться
+        elseif (isset($_POST['register'])){
+            $passwd = password_hash($passwd, PASSWORD_BCRYPT);
+            $q = "
+                insert into user
+                set
+                    login = '$login'
+                    ,passwd = '$passwd'
+                    ,id_role = 2
+            ";
+            dbquery($q);
+            return true;
+        }
+    }
+
+    return false;
+}

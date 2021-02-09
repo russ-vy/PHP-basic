@@ -8,14 +8,15 @@ session_start();
 
 require_once "./route.php";
 
-
-
-echo "<pre>";
-var_dump([
-    $uri
-    ,session_id()
-    ,session_id() === 'vf1524k3p6ausagem521qks6da'
-    ,"_SESSION" => $_SESSION
-    ,empty($_SESSION['userID'])
-]);
-echo "</pre>";
+if (false){
+    echo "<pre>";
+    var_dump([
+        "INDEX"
+        ,"AUTH" => isset($_SESSION['userID'])
+        ,"_SESSION" => $_SESSION
+        ,session_id()
+        ,"_POST" => $_POST
+        ,$uri
+    ]);
+    echo "</pre>";
+}

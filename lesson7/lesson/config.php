@@ -22,9 +22,14 @@ const MENU = [
     ,[
         "title" => "Администратор"
         ,"link" => "/admin"
+        ,"is_admin" => true
     ]
     ,[
         "title" => "Корзина"
         ,"link" => "/cart"
+    ]
+    ,[
+        "title" => "Выход"
+        ,"link" => "/exit"
     ]
 ];

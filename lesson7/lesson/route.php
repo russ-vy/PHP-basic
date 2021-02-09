@@ -9,8 +9,14 @@ function is_route($s){
         return false;
 }
 
-
-if ($uri == '/') {
+if (is_route('/login')){
+    $fileName = './view/login.php';
+}
+elseif (!isset($_SESSION['userID'])){
+    header("Location: /login");
+    return;
+}
+elseif ($uri == '/') {
     header("Location: catalog");
 }
 elseif (is_route('/catalog')) {
@@ -19,16 +25,16 @@ elseif (is_route('/catalog')) {
 elseif (is_route('/product')) {
     $fileName = './view/product.php';
 }
-elseif (is_route('/admin')) {
+elseif (is_route('/admin') && $_SESSION['isAdmin']) {
     $fileName = './admin/admin.php';
 }
-elseif (is_route('/create')) {
+elseif (is_route('/create') && $_SESSION['isAdmin']) {
     $fileName = './admin/action/create.php';
 }
-elseif (is_route('/edit')) {
+elseif (is_route('/edit') && $_SESSION['isAdmin']) {
     $fileName = './admin/action/edit.php';
 }
-elseif (is_route('/delete')) {
+elseif (is_route('/delete')  && $_SESSION['isAdmin']) {
     $fileName = './admin/action/delete.php';
 }
 elseif (is_route('/cart')) {
@@ -39,6 +45,9 @@ elseif (is_route('/del-with-cart')) {
 }
 elseif (is_route('/add-to-cart')) {
     $fileName = './view/action/add-to-cart.php';
+}
+elseif (is_route('/exit')) {
+    $fileName = './view/action/exit.php';
 }
 else {
     $fileName = "./view/404.php";
