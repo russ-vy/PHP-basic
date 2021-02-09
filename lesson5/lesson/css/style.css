@@ -1,0 +1,40 @@
+a{
+	min-height: 1px;
+}
+img{
+	align-self: center;
+	object-fit: cover;
+	width: 100%;
+}
+.uploaded{
+	display: -webkit-flex;
+	display: -ms-flex;
+	display: flex;
+	-webkit-justify-content: space-around;
+	-moz-justify-content: space-around;
+	-ms-justify-content: space-around;
+	-o-justify-content: space-around;
+	justify-content: space-around;
+	min-width: 50%;
+}
+.single{
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+    max-height: 90vh;
+    width: auto;
+}
+h1{
+    text-align: center;
+}
+.form-file{
+	margin-top: 1rem;
+    width: calc(100% - 5.5rem);
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+}
+.send{
+    position: relative;
+    right: -5rem;
+}
