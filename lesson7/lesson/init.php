@@ -78,7 +78,7 @@ function getCart(){
 }
 
 function getUserID(){
-    if (empty($_SESSION['userID']))
+    if (!isset($_SESSION['userID']))
         return session_id();
     else
         return $_SESSION['userID'];
