@@ -11,12 +11,8 @@ require_once "./route.php";
 if (false){
     echo "<pre>";
     var_dump([
-        "INDEX"
-        ,"AUTH" => isset($_SESSION['userID'])
-        ,"_SESSION" => $_SESSION
-        ,session_id()
-        ,"_POST" => $_POST
-        ,$uri
+        "_POST" => $_POST
+        ,json_decode(file_get_contents("php://input"), true)
     ]);
     echo "</pre>";
 }

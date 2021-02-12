@@ -117,3 +117,45 @@ function auth(){
 
     return false;
 }
+
+function getMainMenu(){
+    return [
+                [
+                    "title" => "Администратор"
+                    ,"link" => "/admin"
+                    ,"visible" => ( isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] )
+                ]
+                ,[
+                    "title" => "Главная"
+                    ,"link" => "/"
+                ]
+                ,[
+                    "title" => "Корзина"
+                    ,"link" => "/cart"
+                ]
+                ,[
+                    "title" => "Выйти"
+                    ,"link" => "/exit"
+                    ,"visible" => isset($_SESSION['userID'])
+                ]
+                ,[
+                    "title" => "Войти"
+                    ,"link" => "/login"
+                    ,"visible" => !isset($_SESSION['userID'])
+                ]
+            ];
+}
+
+function alertMessage($message = false){
+    $msg = '';
+    if (!empty($_SESSION['message']))
+        $msg = "
+                <script>
+                    alert('{$_SESSION['message']}')
+                </script>
+            ";
+
+    $_SESSION['message'] = $message;
+
+    return $msg;
+}

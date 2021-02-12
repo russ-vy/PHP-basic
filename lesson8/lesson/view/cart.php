@@ -1,4 +1,6 @@
 
+<div class="container">
+
     <table class="table">
         <thead>
         <tr>
@@ -49,5 +51,34 @@
     }
 
 ?>
-            </tbody>
-        </table>
+        </tbody>
+    </table>
+
+    <details open>
+        <summary>Make the order</summary>
+
+        <form class="row order" action="/order-buy" method="post">
+            <div class="col-md-12">
+                <label for="inputEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="inputEmail" name="email">
+            </div>
+            <div class="col-md-6">
+                <label for="fio" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="fio" placeholder="Ivan Sovetov" name="fio">
+            </div>
+            <div class="col-md-6">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="text" class="form-control" id="phone" placeholder="8 (123) 111-22-33" name="phone">
+            </div>
+            <div class="col-12">
+                <label for="inputAddress" class="form-label">Address</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" name="address">
+            </div>
+            <div class="col-12 order__buy">
+                <button type="submit" class="btn btn-primary">Buy</button>
+            </div>
+        </form>
+
+    </details>
+
+</div>

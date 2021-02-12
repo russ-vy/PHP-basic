@@ -12,10 +12,6 @@ function is_route($s){
 if (is_route('/login')){
     $fileName = './view/login.php';
 }
-elseif (!isset($_SESSION['userID'])){
-    header("Location: /login");
-    return;
-}
 elseif ($uri == '/') {
     header("Location: catalog");
 }
@@ -45,6 +41,13 @@ elseif (is_route('/del-with-cart')) {
 }
 elseif (is_route('/add-to-cart')) {
     $fileName = './view/action/add-to-cart.php';
+}
+elseif (is_route('/order-buy')){
+    $fileName = './view/action/order-buy.php';
+}
+elseif (is_route('/order-edit')){
+    require './admin/action/order-edit.php';
+    return;
 }
 elseif (is_route('/exit')) {
     $fileName = './view/action/exit.php';
