@@ -1,0 +1,76 @@
+.menu{
+	position: relative;
+	height: 0.1rem;
+	width: 100vw;
+}
+.dropdown-menu{
+	display: block;
+	left: auto;
+	right: 0;
+}
+img{
+	align-self: center;
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+}
+td{
+	vertical-align: middle;
+}
+td .img{
+	max-height: 100px;
+	width: auto;
+}
+.img-70vh{
+	max-height: 70vh;
+	width: auto;
+}
+.single{
+	display: block;
+	margin: 0 auto;
+	object-fit: cover;
+	max-height: 90vh;
+	width: auto;
+}
+.center{
+	text-align: center;
+	display: block;
+	margin: 0 auto;
+}
+.card-title,
+.card-text{
+	text-align: center;
+}
+.form-file{
+	margin: 1rem auto 0;
+	width: calc(600px - 5.5rem);
+	max-width: 800px;
+	display: flex;
+	flex-direction: column;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+}
+.input[name="productName"]{
+	margin: 1rem 0;
+}
+.send{
+	margin: 1rem auto;
+	width: 15rem;
+}
+.card-img-top{
+	max-height: 180px;
+	width: auto;
+}
+.card .btn-primary{
+	display: block;
+}
+.card__link{
+	display: block;
+	width: 100%;
+}
+.login{
+	margin: 20vh auto 0 auto;
+}
+.order__buy{
+	margin-top: 1.8rem;
+}
