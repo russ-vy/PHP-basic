@@ -73,7 +73,7 @@ function sendRequest(url, body = {}, method = 'POST'){
         xhr.open(method, url)
 
         xhr.responseType = 'json'
-        xhr.setRequestHeader('Content-Type', 'application/json')
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
 
         xhr.onload = () => {
             if (xhr.status >= 400) {
